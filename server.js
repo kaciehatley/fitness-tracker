@@ -21,6 +21,8 @@ mongoose.connect(MONGODB_URI, {
     useFindAndModify: false
 })
 
+// API Routes 
+
 app.post("/api/workouts", ({body}, res) => {
   const workout = new Workout(body);
 
