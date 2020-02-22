@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
 
-const db = require("./models");
+const Workout = require("./models/workout");
 
 const app = express();
 
@@ -12,16 +12,21 @@ app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useFindAndModify: false
+})
 
 app.post("/api/workouts", ({body}, res) => {
   const workout = new Workout(body);
-  User.create(workout)
-    .then(dbWorkout => {
-      res.json(dbWorkout);
+
+  Workout.create(workout)
+    .then(dbUser => {
+      res.json(dbUser);
     })
     .catch(err => {
       res.json(err);
@@ -29,9 +34,10 @@ app.post("/api/workouts", ({body}, res) => {
 });
 
 app.get("/api/workouts", (req, res) => {
-  db.Workout.find({})
-    .then(dbWorkout => {
-      res.json(dbWorkout);
+  Workout.find({})
+    .then(dbworkout => {
+      res.json(dbworkout);
+      console.log("Here it is: " + dbworkout);
     })
     .catch(err => {
       res.json(err);
