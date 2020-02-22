@@ -44,6 +44,23 @@ app.get("/api/workouts", (req, res) => {
     });
 });
 
+// HTML Routes
+const path = require("path");
+
+
+app.get("/", function(req, res) {
+  console.log("homeeeee");
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+app.get("/exercise", function(req, res) {
+  console.log("exerciseee");
+  res.sendFile(path.join(__dirname, "/public/exercise.html"));
+});
+app.get("/stats", function(req, res) {
+  console.log("statsssss");
+  res.sendFile(path.join(__dirname, "/public/stats.html"));
+});
+
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
   });
