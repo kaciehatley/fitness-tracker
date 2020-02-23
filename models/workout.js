@@ -39,6 +39,7 @@ const WorkoutSchema = new Schema({
     toJSON: {virtuals: true}
 });
 
+// Use virtual method to update total duration of workout
 WorkoutSchema.virtual("totalDuration").get(function () {
     return this.exercises.reduce((total, exercise) => {
       return total + exercise.duration;
