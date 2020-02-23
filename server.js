@@ -23,12 +23,10 @@ mongoose.connect(MONGODB_URI, {
 
 // API Routes 
 
-app.post("/api/workouts", ({body}, res) => {
-  const workout = new Workout(body);
-
-  Workout.create(workout)
-    .then(dbUser => {
-      res.json(dbUser);
+app.post("/api/workouts", (req, res) => {
+  Workout.create({})
+    .then(workoutdata => {
+      res.json(workoutdata);
     })
     .catch(err => {
       res.json(err);
@@ -44,6 +42,17 @@ app.get("/api/workouts", (req, res) => {
     .catch(err => {
       res.json(err);
     });
+});
+
+app.put("/api/workouts/:id", ({ body, params }, res) => {
+  Workout.findByIdAndUpdate(
+      params.id,
+      { $push: { exercises: body }})
+      .then(exerciseData => res.json(exerciseData))
+      .catch(error => {
+          console.log("error", error)
+          res.json(error)
+      })
 });
 
 // HTML Routes
