@@ -37,7 +37,16 @@ app.get("/api/workouts", (req, res) => {
   Workout.find({})
     .then(dbworkout => {
       res.json(dbworkout);
-      console.log("Here it is: " + dbworkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+app.get("/api/workouts/range", (req, res) => {
+  Workout.find({})
+    .then(dbworkout => {
+      res.json(dbworkout);
     })
     .catch(err => {
       res.json(err);
