@@ -103,7 +103,8 @@ input {
 .card.m-auto,
 .m-auto {
   margin: 0 auto;
-  width: 500px;
+  width: 400px;
+  opacity: 0.75;
 }
 
 form .workout-type,
@@ -427,6 +428,10 @@ form > button {
 
 #navbar {
   border-bottom: 1px solid lightgray;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
 }
 
 #backgroundImg {
@@ -437,8 +442,28 @@ form > button {
 
 #siteHeader {
   color: #ffffff;
-  font-size: 55px;
+  font-size: 45px;
   font-weight: 200;
+  padding-bottom: 30px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#rowPadding {
+  margin-bottom: 100px;
+}
+
+#mainContent {
+  padding-top: 10%;
+}
+
+#statsContainer {
+  padding-top: 10%;
+}
+
+#statsHeader {
+  color: white !important;
+  z-index: 2 !important;
+  margin: auto;
 }
 
 @keyframes toast {
@@ -449,5 +474,14 @@ form > button {
   100% {
     opacity: 0;
     right: -320px;
+  }
+}
+
+@media screen and (max-width : 1000px) {
+  #backgroundImg {
+      height: 100%;
+      filter: brightness(30%);
+      position: fixed;
+      width: auto;
   }
 }
