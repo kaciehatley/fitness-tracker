@@ -425,6 +425,10 @@ form > button {
   padding: 10px;
 }
 
+#navbar {
+  border-bottom: 1px solid lightgray;
+}
+
 @keyframes toast {
   50% {
     opacity: 1;
