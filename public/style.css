@@ -429,6 +429,18 @@ form > button {
   border-bottom: 1px solid lightgray;
 }
 
+#backgroundImg {
+  width: 100%;
+  filter: brightness(30%);
+  position: fixed;
+}
+
+#siteHeader {
+  color: #ffffff;
+  font-size: 55px;
+  font-weight: 200;
+}
+
 @keyframes toast {
   50% {
     opacity: 1;
