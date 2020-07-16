@@ -10,7 +10,7 @@
 ## <a name="overview"></a>Project Overview
 This fitness tracker was created to allow the user to keep track of their workouts and see their workout data displayed with graphs on a dashboard. MongoDB/Mongoose drives the application, also utilizing other technologies such as HTML, CSS, JavaScript and Express.
 ## <a name="live"></a>Live Link
-https://tranquil-earth-53034.herokuapp.com/
+https://fitness-tracker-kacie.herokuapp.com/
 ## <a name="installing"></a>Using Application
 
 This is how the user interacts with the deployed application. 
